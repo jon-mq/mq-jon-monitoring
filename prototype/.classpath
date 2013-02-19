@@ -5,6 +5,7 @@
 	<classpathentry kind="lib" path="lib/com.ibm.mq.headers.jar"/>
 	<classpathentry kind="lib" path="lib/com.ibm.mq.jar"/>
 	<classpathentry kind="lib" path="lib/com.ibm.mq.pcf.jar"/>
+	<classpathentry kind="lib" path="lib/com.ibm.mq.jmqi.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
