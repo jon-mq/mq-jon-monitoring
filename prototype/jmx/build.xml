@@ -1,0 +1,61 @@
+<project name="WebSphere MQ JMX Monitor - Source" basedir=".">
+	<property name="package.name" value="${application.name}" />
+	<property name="src.dir" location="java/src" />
+	<property name="resources.dir" location="resources" />
+	<property name="metadata.dir" location="metadata" />
+	<property name="build.dir" location="build" />
+	<property name="dist.dir" location="dist" />
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: -build                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="-build" depends="-build-package">
+            
+    </target>
+
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: -clean                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="-clean">
+		<delete dir="${build.dir}" />
+        <delete dir="${dist.dir}" />
+    </target>
+
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: -build-package                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="-build-package" depends="-compile">
+		<mkdir dir="${dist.dir}" />
+        <jar destfile="${dist.dir}/${package.name}.jar">
+            <fileset dir="${build.dir}">
+                <include name="**/*.class" />
+            </fileset>
+            <manifest>
+              <attribute name="Main-Class"
+                    value="TODO"/>
+            </manifest>
+        </jar>
+	</target>
+	
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: -compile                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="-compile" depends="-init">
+		<mkdir dir="${build.dir}" />
+		<javac srcdir="${src.dir}" destdir="${build.dir}" source="1.7" target="1.7" debug="true" includeantruntime="false">
+			<classpath refid="common.build.class.path" />
+			<include name="**/*.java" />
+		</javac>
+	</target>
+
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: -init                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="-init">
+		<tstamp />
+	</target>
+</project>

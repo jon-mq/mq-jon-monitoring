@@ -1,0 +1,26 @@
+<project name="WebSphere MQ JMX Monitor" basedir="." default="build">
+	<property name="libs.dir" location="lib" />
+	<property name="application.name" value="mq-jmx" />
+
+	<path id="common.build.class.path">
+		<pathelement location="${libs.dir}/com.ibm.mq.jar" />
+        <pathelement location="${libs.dir}/com.ibm.mq.headers.jar" />
+        <pathelement location="${libs.dir}/com.ibm.mq.pcf.jar" />
+		<pathelement location="${libs.dir}/commons-codec-1.7.jar" />
+	</path>
+	
+	<!-- ================================= 
+          target: build              
+         ================================= -->
+    <target name="build">
+        <ant dir="jmx" target="-build" inheritrefs="true" />
+    </target>
+
+	
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean">
+        <ant dir="jmx" target="-clean" inheritrefs="true" />
+    </target>
+</project>
